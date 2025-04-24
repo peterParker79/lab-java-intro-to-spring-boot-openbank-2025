@@ -1,10 +1,13 @@
 package com.ironhack.lab_springboot_postman.controllers;
 
 
+import com.ironhack.lab_springboot_postman.models.Department;
+import com.ironhack.lab_springboot_postman.models.Employee;
 import com.ironhack.lab_springboot_postman.models.Patient;
 import com.ironhack.lab_springboot_postman.repositories.EmployeeRepository;
 import com.ironhack.lab_springboot_postman.repositories.PatientRespository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -20,6 +23,8 @@ public class PatientController {
 
     @Autowired
     PatientRespository patientRepository;
+    @Autowired
+    EmployeeRepository employeeRepository;
 
 
     @GetMapping("/patients")
@@ -31,11 +36,9 @@ public class PatientController {
     @GetMapping("/patients/id/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Patient findById(@PathVariable("id") int id) {
-        Optional<Patient> optional= patientRepository.findById(id);
-        return optional.orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "Patient not found"));
+        Optional<Patient> optional = patientRepository.findById(id);
+        return optional.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Patient not found"));
     }
-
-
 
 
     //Filtrar por fechas
@@ -46,8 +49,8 @@ public class PatientController {
     @GetMapping("/patients/by-range-date")
     @ResponseStatus(HttpStatus.OK)
     public List<Patient> getPatientsByDateOfBirthRange(
-        @RequestParam("startDate") String startDate,
-        @RequestParam("endDate") String endDate) {
+            @RequestParam("startDate") String startDate,
+            @RequestParam("endDate") String endDate) {
 
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -62,7 +65,24 @@ public class PatientController {
         }
         return patientRepository.findByDateOfBirthBetween(startDate, endDate);
 
-        }
+    }
+
+    //8. Obtención de los pacientes  por departamento del médico. ej: Todos los pacientes de cardiologia
+    // A través del id de empleado(medico) muestra los pacientes que han sido admitidos por ese medico
+
+    @GetMapping("/patients/admit-employee/{employeeId}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByDepartment(@PathVariable("employeeId") int employeeId) {
+        Employee employee= employeeRepository.findByEmployeeId(employeeId);
+        if (employee == null) {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found");}
+
+
+        return patientRepository.getPatientByAdmittedBy_(employee);
+
+
+    }
+
+    ;
 
 
 }
