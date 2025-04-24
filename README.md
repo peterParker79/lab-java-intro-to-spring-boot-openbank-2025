@@ -65,9 +65,13 @@ Patient Table
 3. **Get doctors by status:** Create a route to get doctors by `status`.
 ![img_2.png](img_2.png)
 4. **Get doctors by department:** Create a route to get doctors by `department`.
+![img_3.png](img_3.png)
 5. **Get all patients:** Create a route to get all patients.
+![img_4.png](img_4.png)
 6. **Get patient by ID:** Create a route to get a patient by `patient_id`.
+![img_6.png](img_6.png)
 7. **Get patients by date of birth range:** Create a route to get patients date of birth within a specified range.
+![img_5.png](img_5.png)
 8. **Get patients by admitting doctor's department:** Create a route to get patients by the department that their admitting doctor is in (For example, get all patients admitted by a doctor in cardiology).
 9. **Get all patients with a doctor whose status is OFF:** Create a route to get all patients with a doctor whose `status` is OFF.
 

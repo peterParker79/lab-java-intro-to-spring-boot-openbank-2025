@@ -1,6 +1,7 @@
 package com.ironhack.lab_springboot_postman.controllers;
 
 
+import com.ironhack.lab_springboot_postman.models.Department;
 import com.ironhack.lab_springboot_postman.models.Employee;
 import com.ironhack.lab_springboot_postman.models.Status;
 import com.ironhack.lab_springboot_postman.repositories.EmployeeRepository;
@@ -46,11 +47,27 @@ public class EmployeeController {
             // Si el status no es válido, lanzar una excepción con código 400 (Bad Request)
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid status value: " + status);
         }
-
-
     }
     //public Product getProductById(@PathVariable(name="id") long productId) {
     //   return productRepository.findById(productId).get();
+
+
+
+    @GetMapping("/employees/department/{department}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Employee> getEmployeesDepartment(@PathVariable(name="department") String department) {
+        try {
+            // Convertir el String recibido a Status (ENUM)
+            Department departmentEnum = Department.valueOf(department.toUpperCase());
+            // Llamar al repositorio con el Status convertido
+            return employeeRepository.findByDepartment(departmentEnum);
+        } catch (IllegalArgumentException e) {
+            // Si el status no es válido, lanzar una excepción con código 400 (Bad Request)
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid department value: " + department);
+        }
+    }
+
+
 
 
 }
