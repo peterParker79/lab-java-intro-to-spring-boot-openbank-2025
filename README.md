@@ -59,42 +59,44 @@ Patient Table
 ## Instructions
 
 1. **Get all doctors:** Create a route to get all doctors.
-![img.png](img.png)
+![img.png](imgReadme/img.png)
 2. **Get doctor by ID:** Create a route to get a doctor by `employee_id`.
-![img_1.png](img_1.png)
+![img_1.png](imgReadme/img_1.png)
 3. **Get doctors by status:** Create a route to get doctors by `status`.
-![img_2.png](img_2.png)
+![img_2.png](imgReadme/img_2.png)
 4. **Get doctors by department:** Create a route to get doctors by `department`.
-![img_3.png](img_3.png)
+![img_3.png](imgReadme/img_3.png)
 5. **Get all patients:** Create a route to get all patients.
-![img_4.png](img_4.png)
+![img_4.png](imgReadme/img_4.png)
 6. **Get patient by ID:** Create a route to get a patient by `patient_id`.
-![img_6.png](img_6.png)
+![img_6.png](imgReadme/img_6.png)
 7. **Get patients by date of birth range:** Create a route to get patients date of birth within a specified range.
-![img_5.png](img_5.png)
+![img_5.png](imgReadme/img_5.png)
 8. **Get patients by admitting doctor's department:** Create a route to get patients by the department that their admitting doctor is in (For example, get all patients admitted by a doctor in cardiology).
-![img_7.png](img_7.png)
+![img_7.png](imgReadme/img_7.png)
 9. **Get all patients with a doctor whose status is OFF:** Create a route to get all patients with a doctor whose `status` is OFF.
-![img_8.png](img_8.png)
-![img_9.png](img_9.png)
-![img_10.png](img_10.png)
+![img_8.png](imgReadme/img_8.png)
+![img_9.png](imgReadme/img_9.png)
+![img_10.png](imgReadme/img_10.png)
 <h3>Creación de Tablas</h3>
 
 Las tablas han sido creadas con ddl-auto en update
 <br>
-![img_19.png](img_19.png)
+![img_19.png](imgReadme/img_19.png)
+<br>
 *employees* 
 <br>
-![img_17.png](img_17.png)
+![img_17.png](imgReadme/img_17.png)
+<br>
 *patients*
 <br>
-![img_14.png](img_14.png)
+![img_14.png](imgReadme/img_14.png)
 
 Resgisters into BBDD
 <br>
-![img_18.png](img_18.png)
-![img_15.png](img_15.png)
-![img_16.png](img_16.png)
+![img_18.png](imgReadme/img_18.png)
+![img_15.png](imgReadme/img_15.png)
+![img_16.png](imgReadme/img_16.png)
 
 
 <br>
