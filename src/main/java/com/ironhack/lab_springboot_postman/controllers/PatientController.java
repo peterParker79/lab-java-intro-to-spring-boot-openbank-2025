@@ -4,6 +4,7 @@ package com.ironhack.lab_springboot_postman.controllers;
 import com.ironhack.lab_springboot_postman.models.Department;
 import com.ironhack.lab_springboot_postman.models.Employee;
 import com.ironhack.lab_springboot_postman.models.Patient;
+import com.ironhack.lab_springboot_postman.models.Status;
 import com.ironhack.lab_springboot_postman.repositories.EmployeeRepository;
 import com.ironhack.lab_springboot_postman.repositories.PatientRespository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,13 +77,28 @@ public class PatientController {
         Employee employee= employeeRepository.findByEmployeeId(employeeId);
         if (employee == null) {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found");}
 
-
         return patientRepository.getPatientByAdmittedBy_(employee);
+    }
+
+    /* 9.
+        Obtener todos los pacientes con un médico(Employee) cuyo estado es  OFF
+        Obtendremos resultados cuando el estado del id del Empleado introducido
+        sea OFF
+     */
+    @GetMapping("/patients/employee-off/{idEmployeeStatusOff}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Patient> getPatientsByStatusOff(@PathVariable("idEmployeeStatusOff") int idEmployeeOff) {
+       Employee employee = employeeRepository.findByEmployeeId(idEmployeeOff);
+       if (employee == null) {throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found");}
+       if (employee.getStatus() != Status.OFF){
+          throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Employee status is not OFF");
+       }
+       return patientRepository.getPatientByAdmittedBy_(employee);
 
 
     }
 
-    ;
+
 
 
 }
