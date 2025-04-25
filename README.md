@@ -80,19 +80,6 @@ Patient Table
 ![img_10.png](img_10.png)
 
 
-<h3>BBDD</h3>
-Las tablas han sido creadas desde Spring boot con ddl-auto en <u>update</u>
-<br>![img_19.png](img_19.png)
-*employees*
-![img_17.png](img_17.png)
-*patients*
-![img_14.png](img_14.png)
-
-<h3>Resgisters into BBDD</h3>
-![img_18.png](img_18.png)
-![img_15.png](img_15.png)
-![img_16.png](img_16.png)
-
 
 <br>
 
