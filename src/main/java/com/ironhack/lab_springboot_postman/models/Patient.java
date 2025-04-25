@@ -18,8 +18,6 @@ public class Patient {
     //asumo que el formato es siempre YYYY-MM-DD y podemos comparar posteriormente fechas
     String dateOfBirth;
 
-    //@Column(name="admitted_by")
-
     @ManyToOne // muchos pacientes pueden ser atendidos por un mismo empleado
     @JoinColumn(name = "admitted_by", referencedColumnName = "employee_Id") // Clave foranea
     Employee admittedBy;
