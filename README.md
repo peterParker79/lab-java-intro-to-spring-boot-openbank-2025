@@ -81,13 +81,17 @@ Patient Table
 <h3>Creación de Tablas</h3>
 
 Las tablas han sido creadas con ddl-auto en update
+<br>
 ![img_19.png](img_19.png)
-*employees*
+*employees* 
+<br>
 ![img_17.png](img_17.png)
 *patients*
+<br>
 ![img_14.png](img_14.png)
 
-<h3>Resgisters into BBDD</h3>
+Resgisters into BBDD
+<br>
 ![img_18.png](img_18.png)
 ![img_15.png](img_15.png)
 ![img_16.png](img_16.png)
