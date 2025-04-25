@@ -78,7 +78,8 @@ Patient Table
 ![img_8.png](img_8.png)
 ![img_9.png](img_9.png)
 ![img_10.png](img_10.png)
-
+<h3>Creación de Tablas</h3>
+<p>Las tablas han sido creadas con ddl-auto en update</p>
 ![img_19.png](img_19.png)
 *employees*
 ![img_17.png](img_17.png)
